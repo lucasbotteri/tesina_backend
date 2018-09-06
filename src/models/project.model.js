@@ -6,7 +6,7 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const project = sequelizeClient.define('project', {
-    text: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -22,6 +22,18 @@ module.exports = function (app) {
   project.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    this.belongsTo(models.user, {
+      as: 'owner',
+      foreignKey: 'id'
+    });
+    this.hasMany(models.user,  {
+      as: 'contributors',
+      foreignKey: 'id'
+    });
+    this.hasMany(models.symbol,  {
+      as: 'definitions',
+      foreignKey: 'id'
+    });
   };
 
   return project;

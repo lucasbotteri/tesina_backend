@@ -30,6 +30,10 @@ module.exports = function (app) {
   user.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    this.hasMany(models.project,  {
+      as: 'projects',
+      foreignKey: 'id'
+    });
   };
 
   return user;
