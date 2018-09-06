@@ -1,0 +1,40 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "DB_NAME": "lel_manager",
+  "DB_USERNAME": "postgres",
+  "DB_PASSWORD": "postgres",
+  "DB_HOST": "localhost",
+  "DB_PORT": 5432,
+  "DB_DIALECT": "postgres",
+  "postgres": "postgres://postgres:@localhost:5432/lel_manager",
+  "authentication": {
+    "secret": "06b686eb199ca1c3cbddfc6b605e0e6063ecfdba543e40ac361a4b54d00a76f4f159bc755e2e7e5d2584e481f85039928210b1f4ffd573ee000738fce27223e985d56f8244389f479d7119bacbb716c75731eff7534b0acddc017e8161d3e3c72ebb9351ee2093ab41456233f7abaf8a556b0c59a52d4b1cc9428442a68c22bb9c95e24d890b71fcf00a20bcf772440874e02ef35ea929e1bbe94e374d7bfcae7a4b7de0753f321c5a2d3120bdc7862ec466958065aaec5fb28825c5f2472a3268b8ede95a4fadac88e704bdb06f37e9f2110ccef0727bc7e868d7191c1af1968a3da43faa8a0b2cd1aba9cf4026e33e40dd85523915fdbb38366ee1a79f2c3c",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "user",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
+}

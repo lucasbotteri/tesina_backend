@@ -1,27 +1,29 @@
-# backend
+# lel-manager
 
-a [Sails v1](https://sailsjs.com) application
+> Backend para el sistema para gestion de LEL para la tesina la UNLP
+
+## Dependencies
+
+* Node js - v8.11.1
+* Postgres - v9.5.13
+
+## Installation & Configuration
+
+* Create the development config file using in config directory
+
+* Install dependecies with `npm install`
+
+* Create database with `node_modules/.bin/sequelize db:create`
+
+## Running 
+
+`npm start`
 
 
-### Links
+## (Feathers)[https://docs.feathersjs.com/]
 
-+ [Get started](https://sailsjs.com/get-started)
-+ [Sails framework documentation](https://sailsjs.com/documentation)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+Feathers is a batteries included but entirely optional minimal web application framework.
 
-
-### Version info
-
-This app was originally generated on Thu Apr 12 2018 14:14:24 GMT-0300 (-03) using Sails v1.0.1.
-
-<!-- Internally, Sails used [`sails-generate@1.15.20`](https://github.com/balderdashy/sails-generate/tree/v1.15.20/lib/core-generators/new). -->
-
-
-
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
+To generate a Service whit the model, routes and service generation 
+`feathers g service`
 
