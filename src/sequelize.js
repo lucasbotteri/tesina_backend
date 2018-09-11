@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const logger = require('./logger');
 const { Op } = Sequelize;
 const operatorsAliases = {
   $eq: Op.eq,
@@ -71,7 +72,8 @@ module.exports = function (app) {
     });
 
     // Sync to the database
-    sequelize.sync();
+    sequelize.sync()
+      .catch(err => logger.error(err));
 
     return result;
   };
