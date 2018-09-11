@@ -24,7 +24,7 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "start": "node src/",
+    "start": "node_modules/nodemon/bin/nodemon.js src/",
     "mocha": "mocha test/ --recursive --exit"
   },
   "dependencies": {
@@ -49,6 +49,7 @@
   "devDependencies": {
     "eslint": "^4.10.0",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }
