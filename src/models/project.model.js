@@ -22,17 +22,14 @@ module.exports = function (app) {
   project.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
-    this.hasOne(models.user, {
-      as: 'owner',
-      foreignKey: 'id'
+    this.belongsTo(models.user, {
+      as: 'owner'
     });
-    this.hasMany(models.user,  {
-      as: 'contributors',
-      foreignKey: 'id'
+    this.belongsToMany(models.user, {
+      through: 'contributors'
     });
     this.hasMany(models.symbol,  {
-      as: 'definitions',
-      foreignKey: 'id'
+      as: 'definitions'
     });
   };
 

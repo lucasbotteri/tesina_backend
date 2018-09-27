@@ -39,13 +39,12 @@ const operatorsAliases = {
 };
 
 module.exports = function (app) {
-  const connectionString = app.get('postgres');
-  const DB_NAME = app.get('DB_NAME')
-  const DB_USERNAME = app.get('DB_USERNAME')
-  const DB_PASSWORD = app.get('DB_PASSWORD')
-  const DB_DIALECT = app.get('DB_DIALECT')
-  const DB_HOST = app.get('DB_HOST')
-  const DB_PORT = app.get('DB_PORT')
+  const DB_NAME = app.get('DB_NAME');
+  const DB_USERNAME = app.get('DB_USERNAME');
+  const DB_PASSWORD = app.get('DB_PASSWORD');
+  const DB_DIALECT = app.get('DB_DIALECT');
+  const DB_HOST = app.get('DB_HOST');
+  const DB_PORT = app.get('DB_PORT');
   const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
     dialect: DB_DIALECT,
     host: DB_HOST,
