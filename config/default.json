@@ -29,7 +29,7 @@
       "subject": "anonymous",
       "issuer": "feathers",
       "algorithm": "HS256",
-      "expiresIn": "0"
+      "expiresIn": "365d"
     },
     "local": {
       "entity": "user",
