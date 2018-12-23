@@ -1,5 +1,5 @@
 const {authenticate} = require('@feathersjs/authentication').hooks;
-
+const symbolExtractor = require('../../hooks/symbolExtractor');
 module.exports = {
   before: {
     all: [authenticate('jwt')],
@@ -12,7 +12,7 @@ module.exports = {
         return context;
       }],
     get: [],
-    create: [],
+    create: [symbolExtractor()],
     update: [],
     patch: [],
     remove: []
@@ -22,10 +22,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [function (context) {
-      console.log('data ', context.data);
-      console.log('params', context.params);
-    }],
+    create: [],
     update: [],
     patch: [],
     remove: []
