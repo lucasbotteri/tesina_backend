@@ -22,7 +22,8 @@ module.exports = function (app) {
   notion.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
-    this.belongsTo(models.symbol, { as: 'symbol', foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
+    this.belongsTo(models.symbol, { as: 'symbol', foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+    this.belongsToMany(models.symbol, {as:'symbolsReferenced', through: 'notion_symbol'});
   };
 
   return notion;
