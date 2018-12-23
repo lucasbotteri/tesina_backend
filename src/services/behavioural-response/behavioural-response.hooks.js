@@ -1,9 +1,16 @@
-const { authenticate } = require('@feathersjs/authentication').hooks;
+const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
-    find: [],
+    all: [authenticate('jwt')],
+    find: [
+      function (context) {
+        if (context.params.query.symbolId) {
+          context.params.paginate = false;
+          delete context.params.query.$limit;
+        }
+        return context;
+      }],
     get: [],
     create: [],
     update: [],

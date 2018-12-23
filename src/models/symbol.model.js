@@ -13,6 +13,10 @@ module.exports = function (app) {
     type: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     hooks: {
@@ -28,11 +32,13 @@ module.exports = function (app) {
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
     this.hasMany(models.notion,  {
       as: 'notions',
-      foreignKey: 'id'
+      foreignKey: { allowNull: false },
+      onDelete: 'CASCADE'
     });
     this.hasMany(models.behavioural_response,  {
       as: 'behaviouralResponses',
-      foreignKey: 'id'
+      foreignKey: { allowNull: false },
+      onDelete: 'CASCADE'
     });
   };
 

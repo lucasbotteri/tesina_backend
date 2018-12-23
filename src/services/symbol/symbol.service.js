@@ -12,11 +12,6 @@ module.exports = function (app) {
     paginate
   };
 
-  app.post('/symbol', (req, res ,next) => {
-    console.log(req.body);
-    next();
-  })
-
   // Initialize our service with any options it requires
   app.use('/symbol', createService(options));
 

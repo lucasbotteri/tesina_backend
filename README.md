@@ -15,6 +15,9 @@
 
 * Create database with `node_modules/.bin/sequelize db:create`
 
+* Run seeds with `node_modules/.bin/sequelize db:seed:all`
+
+
 ## Running 
 
 `npm start`
