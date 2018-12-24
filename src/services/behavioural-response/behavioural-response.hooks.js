@@ -1,4 +1,7 @@
 const {authenticate} = require('@feathersjs/authentication').hooks;
+const symbolExtractor = require('../../hooks/symbolExtractor');
+const returnModelInstance = require('../../hooks/rawFalse');
+const includeReferencedSymbols = require('../../hooks/includeSymbolsReferenced');
 
 module.exports = {
   before: {
@@ -10,9 +13,10 @@ module.exports = {
           delete context.params.query.$limit;
         }
         return context;
-      }],
+      },includeReferencedSymbols],
     get: [],
-    create: [],
+    // We need the instance to use ORM association
+    create: [returnModelInstance],
     update: [],
     patch: [],
     remove: []
@@ -22,7 +26,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [symbolExtractor],
     update: [],
     patch: [],
     remove: []
