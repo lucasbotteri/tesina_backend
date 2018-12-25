@@ -4,7 +4,7 @@ const hash = require('@feathersjs/authentication-local/lib/utils/hash');
 module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('user', [
-      { email: 'admin@admin.com', password: await hash('admin'), createdAt: new Date(), updatedAt: new Date() }
+      { email: 'admin@admin.com', password: await hash('admin'), type: 'ADMINISTRATOR', createdAt: new Date(), updatedAt: new Date() }
     ], {});
 
     console.log('SEEDED USERES')
