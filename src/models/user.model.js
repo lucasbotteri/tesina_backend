@@ -17,7 +17,7 @@ module.exports = function (app) {
       allowNull: false
     },
 
-    type: {
+    role: {
       type: DataTypes.STRING,
       allowNull: false ,
       default: 'regular'
