@@ -40,6 +40,9 @@ module.exports = function (app) {
       foreignKey: { allowNull: false },
       onDelete: 'CASCADE'
     });
+    this.belongsTo(models.project, {
+      as: 'project'
+    });
   };
 
   return symbol;

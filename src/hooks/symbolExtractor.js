@@ -1,7 +1,8 @@
 const  textSanitization= require('../common/textSanitization');
-
+// The result must be sent as RAW for this hook to works
 module.exports = async function (context) {
-  const sanitizedSymbols = await context.app.service('symbol').find({paginate: false});
+  const symbol = await context.result.getSymbol();
+  const sanitizedSymbols = await context.app.service('symbol').find({query: {projectId: {$eq: symbol.projectId}}, paginate: false});
   sanitizedSymbols
     .forEach(s => {
       s.name = textSanitization(s.name);

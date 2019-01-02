@@ -25,9 +25,6 @@ module.exports = function (app) {
     this.belongsTo(models.user, {
       as: 'owner'
     });
-    this.belongsToMany(models.user, {
-      through: 'contributors'
-    });
     this.hasMany(models.symbol,  {
       as: 'definitions'
     });
