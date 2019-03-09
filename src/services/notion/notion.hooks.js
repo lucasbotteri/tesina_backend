@@ -1,5 +1,5 @@
 const {authenticate} = require('@feathersjs/authentication').hooks;
-const symbolExtractor = require('../../hooks/symbolExtractor');
+const findSymbolsReferenced = require('../../hooks/findSymbolsReferenced');
 const returnModelInstance = require('../../hooks/rawFalse');
 const includeReferencedSymbols = require('../../hooks/includeSymbolsReferenced');
 const removePagination = require('../../hooks/removePagination');
@@ -20,7 +20,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [symbolExtractor],
+    create: [findSymbolsReferenced],
     update: [],
     patch: [],
     remove: []

@@ -1,5 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const findReferences = require('../../hooks/findReferences');
+const findSymbolReferences = require('../../hooks/findSymbolReferences');
 
 module.exports = {
   before: {
@@ -16,7 +16,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [findReferences],
+    create: [findSymbolReferences],
     update: [],
     patch: [],
     remove: []
