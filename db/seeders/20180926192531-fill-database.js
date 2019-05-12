@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 const hash = require('@feathersjs/authentication-local/lib/utils/hash');
 
@@ -7,7 +8,7 @@ module.exports = {
       { email: 'admin@admin.com', password: await hash('admin'), role: 'ADMINISTRATOR', createdAt: new Date(), updatedAt: new Date() }
     ], {});
 
-    console.log('SEEDED USERES')
+    console.log('SEEDED USERES');
 
     const users = await queryInterface.sequelize.query(
       'SELECT * from "user";'
@@ -18,7 +19,7 @@ module.exports = {
     ], {});
 
 
-    console.log('SEEDED PROJECTS')
+    console.log('SEEDED PROJECTS');
 
     const projects = await queryInterface.sequelize.query(
       'SELECT id from project;'
@@ -42,7 +43,7 @@ module.exports = {
     ], {});
 
 
-    console.log('SEEDED SYMBOLS')
+    console.log('SEEDED SYMBOLS');
 
     const symbols = await queryInterface.sequelize.query(
       'SELECT id from symbol;'
@@ -53,13 +54,13 @@ module.exports = {
     ], {});
 
 
-    console.log('SEEDED NOTIONS')
+    console.log('SEEDED NOTIONS');
 
     return await queryInterface.bulkInsert('behavioural_response', [
       { description: 'El cliente puede abrir una cuenta', symbolId: symbols[0][0].id, createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 
-  down: async (queryInterface) => {
+  down: async () => {
   },
 };

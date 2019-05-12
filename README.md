@@ -15,7 +15,9 @@
 
 * Create database with `node_modules/.bin/sequelize db:create`
 
-* Run seeds with `node_modules/.bin/sequelize db:seed:all`
+* Run the server
+
+* Optional - Run seeds with `node_modules/.bin/sequelize db:seed:all` (You HAVE TO RUN first)
 
 
 ## Running 
