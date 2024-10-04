@@ -13,11 +13,11 @@
 
 - Install dependecies with `npm install`
 
-- Create database with `node_modules/.bin/sequelize db:create`
+- Create database with `npm eun db:create`
 
 - Run the server
 
-- Optional - Run seeds with `node_modules/.bin/sequelize db:seed:all` (You HAVE TO RUN first)
+- Optional - Run seeds with `npm run db:seed` (You HAVE TO RUN first)
 
 ## Docker Installation & Configuration
 
@@ -36,7 +36,7 @@ To run the application using Docker:
 4. Optional - To run the database seeds, execute the following command:
 
    ```
-   docker compose exec app npm run sequelize db:seed:all
+   docker compose exec app npm run db:seed
    ```
 
    Note: Make sure the application is fully up and running before executing this command.
