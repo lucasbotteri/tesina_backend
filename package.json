@@ -29,7 +29,7 @@
     "sequelize": "sequelize",
     "db:create": "sequelize db:create",
     "db:migrate": "sequelize db:migrate",
-    "db:seed": "sequelize db:seed"
+    "db:seed": "sequelize db:seed:all"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.9",
