@@ -24,8 +24,12 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "start": "node_modules/nodemon/bin/nodemon.js src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "start": "nodemon src/",
+    "mocha": "mocha test/ --recursive --exit",
+    "sequelize": "sequelize",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.9",

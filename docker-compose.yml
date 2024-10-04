@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3030:3030"
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+      - /app/node_modules
+
+  db:
+    image: postgres:9.5.13
+    environment:
+      - POSTGRES_DB=lel_manager
+      - POSTGRES_USER=lelmanager
+      - POSTGRES_PASSWORD=lelmanager
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+
+volumes:
+  postgres_data:
