@@ -25,9 +25,10 @@ module.exports = function (app) {
     this.belongsTo(models.user, {
       as: 'owner'
     });
-    this.hasMany(models.symbol,  {
+    this.hasMany(models.symbol, {
       as: 'definitions'
     });
+    this.hasMany(models.scenario, { as: 'scenarios' });
   };
 
   return project;

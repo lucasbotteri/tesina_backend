@@ -30,12 +30,12 @@ module.exports = function (app) {
   symbol.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
-    this.hasMany(models.notion,  {
+    this.hasMany(models.notion, {
       as: 'notions',
       foreignKey: { allowNull: false },
       onDelete: 'CASCADE'
     });
-    this.hasMany(models.behavioural_response,  {
+    this.hasMany(models.behavioural_response, {
       as: 'behaviouralResponses',
       foreignKey: { allowNull: false },
       onDelete: 'CASCADE'
