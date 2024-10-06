@@ -13,7 +13,7 @@ async function addSymbolsReferenced(semantic, symbols) {
 
   //Steamming symbols names
   const sanitizedSymbols = symbols
-    .map(sym => ({ ...sym, stemmedName: stem(sym.name)}));
+    .map(sym => ({ ...sym, stemmedName: stem(sym.name) }));
 
   //Filtering symbols that are referenced in the semantic description
   const symbolsInDescription = sanitizedSymbols
@@ -38,7 +38,13 @@ async function addSymbolsReferenced(semantic, symbols) {
 module.exports = async function (context) {
   const semantic = context.result;
   const symbol = await semantic.getSymbol();
-  const symbolsInProject = await context.app.service('symbol').find({ query: { projectId: { $eq: symbol.projectId } }, paginate: false });
+  const symbolsInProject = await context.app.service('symbol').find({
+    query: {
+      projectId: { $eq: symbol.projectId },
+      id: { $ne: symbol.id }
+    },
+    paginate: false
+  });
   context.result = await addSymbolsReferenced(semantic, symbolsInProject);
   return context;
 };
