@@ -11,13 +11,16 @@ async function addSymbolsReferenced(semantic, symbols) {
   //Steamming semantic description
   const sanitizedDescription = stemToWords(semantic.description);
 
-  //Steamming symbols names
-  const sanitizedSymbols = symbols
-    .map(sym => ({ ...sym, stemmedName: stem(sym.name) }));
+  // Stemming symbols' names into arrays of words
+  const sanitizedSymbols = symbols.map(sym => ({
+    ...sym,
+    stemmedWords: stemToWords(sym.name),
+  }));
+
 
   //Filtering symbols that are referenced in the semantic description
   const symbolsInDescription = sanitizedSymbols
-    .filter(sym => sanitizedDescription.includes(sym.stemmedName))
+    .filter(sym => sym.stemmedWords.every(word => sanitizedDescription.includes(word)))
     .map(sym => sym.id);
 
   // Adding relationship
