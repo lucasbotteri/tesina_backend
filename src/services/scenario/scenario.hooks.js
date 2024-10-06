@@ -4,7 +4,7 @@ module.exports = {
   before: {
 
     all: [authenticate('jwt')],
-    find: [includeAssociations()],
+    find: [],
     get: [includeAssociations()],
     create: [],
     update: [],
