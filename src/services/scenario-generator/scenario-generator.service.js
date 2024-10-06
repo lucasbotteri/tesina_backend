@@ -21,9 +21,9 @@ const createScenarioGeneratorService = (app) => {
       const symbolService = app.service('symbol');
       const notionService = app.service('notion');
       const behaviouralResponseService = app.service('behavioural-response');
+      const scenarioService = app.service('scenario');
 
 
-      // Fetch verb symbols for the projectId
       const verbSymbols = await symbolService.find({
         query: {
           projectId,
@@ -33,8 +33,6 @@ const createScenarioGeneratorService = (app) => {
       });
 
 
-
-      // Generate scenarios for each verb
 
       const generatedScenarios = await Promise.all(verbSymbols.map(async (verb) => {
         const verbId = verb.id;
@@ -84,19 +82,34 @@ const createScenarioGeneratorService = (app) => {
           paginate: false
         });
 
-
-
-        return {
+        const scenarioData = {
           title: `${verb.name} Scenario`,
-          project: projectId,
-          verb,
-          actors,
-          goals,
-          episodes,
-          resources,
+          projectId: projectId,
+          verbId: verb.id,
         };
 
+        const scenario = await scenarioService.create(scenarioData, { sequelize: { raw: false } });
+
+        // Then, associate actors, goals, episodes, and resources
+        if (actors.length > 0) {
+          await scenario.setActors(actors.map(actor => actor.id));
+        }
+
+        if (goals.length > 0) {
+          await scenario.setGoals(goals.map(goal => goal.id));
+        }
+
+        if (episodes.length > 0) {
+          await scenario.setEpisodes(episodes.map(episode => episode.id));
+        }
+
+        if (resources.length > 0) {
+          await scenario.setResources(resources.map(resource => resource.id));
+        }
+        return scenario;
       }));
+
+      // Bulk create scenarios
 
       return generatedScenarios;
     },

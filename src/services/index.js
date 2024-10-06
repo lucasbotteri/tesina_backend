@@ -5,6 +5,7 @@ const user = require('./user/user.service.js');
 const project = require('./project/project.service.js');
 const scenario = require('./scenario/scenario.service.js');
 const scenarioGenerator = require('./scenario-generator/scenario-generator.service.js');
+const init = require('./init/init.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(symbol);
@@ -14,4 +15,5 @@ module.exports = function (app) {
   app.configure(project);
   app.configure(scenario);
   app.configure(scenarioGenerator);
+  app.configure(init);
 };

@@ -9,7 +9,10 @@ module.exports = function (app) {
 
   const options = {
     Model,
-    paginate
+    paginate,
+    sequelize: {
+      raw: false,
+    },
   };
 
   // Initialize our service with any options it requires

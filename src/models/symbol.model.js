@@ -16,7 +16,7 @@ module.exports = function (app) {
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {
     hooks: {

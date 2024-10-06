@@ -8,10 +8,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
     context: {
       type: DataTypes.TEXT,
       allowNull: true
@@ -28,9 +24,9 @@ module.exports = function (app) {
     this.belongsTo(models.project, { as: 'project' });
     this.belongsTo(models.symbol, { as: 'verb', foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     this.belongsToMany(models.symbol, { as: 'actors', through: 'scenarios_actors' });
-    this.belongsToMany(models.symbol, { as: 'goals', through: 'scenarios_goals' });
+    this.belongsToMany(models.notion, { as: 'goals', through: 'scenarios_goals' });
     this.belongsToMany(models.symbol, { as: 'resources', through: 'scenarios_resources' });
-    this.belongsToMany(models.symbol, { as: 'episodes', through: 'scenarios_episodes' });
+    this.belongsToMany(models.behavioural_response, { as: 'episodes', through: 'scenarios_episodes' });
   };
 
   return scenario;
