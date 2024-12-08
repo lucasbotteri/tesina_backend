@@ -23,6 +23,13 @@ const createScenarioGeneratorService = (app) => {
       const behaviouralResponseService = app.service('behavioural-response');
       const scenarioService = app.service('scenario');
 
+      // Delete existing scenarios for the project
+      await scenarioService.remove(null, {
+        query: {
+          projectId
+        }
+      });
+
 
       const verbSymbols = await symbolService.find({
         query: {
