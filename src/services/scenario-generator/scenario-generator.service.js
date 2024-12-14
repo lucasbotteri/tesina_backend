@@ -90,7 +90,7 @@ const createScenarioGeneratorService = (app) => {
         });
 
         const scenarioData = {
-          title: `${verb.name} Scenario`,
+          title: `${verb.name}`,
           projectId: projectId,
           verbId: verb.id,
         };

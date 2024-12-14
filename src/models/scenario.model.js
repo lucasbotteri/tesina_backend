@@ -21,7 +21,7 @@ module.exports = function (app) {
   });
 
   scenario.associate = function (models) {
-    this.belongsTo(models.project, { as: 'project' });
+    this.belongsTo(models.project, { as: 'project', onDelete: 'CASCADE' });
     this.belongsTo(models.symbol, { as: 'verb', foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     this.belongsToMany(models.symbol, { as: 'actors', through: 'scenarios_actors' });
     this.belongsToMany(models.notion, { as: 'goals', through: 'scenarios_goals' });

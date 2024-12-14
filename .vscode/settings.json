@@ -1,3 +1,13 @@
 {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "always"
+        }
+    },
+    "eslint.format.enable": true
 }

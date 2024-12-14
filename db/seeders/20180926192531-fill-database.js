@@ -91,13 +91,13 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        description: 'La acción de fertilizar usando la tubería de riego tiene como objetivo agregar nutrientes a la planta mediante el riego.',
+        description: 'Agregar nutrientes a la planta',
         symbolId: symbolMap['Fertilizar usando la tubería de riego'],
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        description: 'La acción de fertilizar usando la mochila de riego tiene como objetivo agregar nutrientes a la planta mediante la aspersión.',
+        description: 'Agregar nutrientes a la planta',
         symbolId: symbolMap['Fertilizar usando la mochila de riego'],
         createdAt: new Date(),
         updatedAt: new Date(),
